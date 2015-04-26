@@ -4,7 +4,7 @@
 all: dotstar.so
 
 dotstar.so: dotstar.o
-	gcc -s -shared -Wl,-soname,libdotstar.so -o $@ $<
+	gcc -s -shared -lmraa -Wl,-soname,libdotstar.so -o $@ $<
 
 .c.o:
 	gcc -fPIC -O3 -fomit-frame-pointer -funroll-loops -c $<
