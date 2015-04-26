@@ -12,8 +12,8 @@ from dotstar import Adafruit_DotStar
 filename  = "hello.png" # Image file to load
 
 # Here's how to control the strip from any two GPIO pins:
-datapin   = 23
-clockpin  = 24
+datapin   = 3
+clockpin  = 4
 strip     = Adafruit_DotStar(0, datapin, clockpin)
 # Notice the number of LEDs is set to 0.  This is on purpose...we're asking
 # the DotStar module to NOT allocate any memory for this strip...we'll handle

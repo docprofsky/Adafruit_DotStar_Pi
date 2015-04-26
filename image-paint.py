@@ -13,8 +13,8 @@ numpixels = 30          # Number of LEDs in strip
 filename  = "hello.png" # Image file to load
 
 # Here's how to control the strip from any two GPIO pins:
-datapin   = 23
-clockpin  = 24
+datapin   = 3
+clockpin  = 4
 strip     = Adafruit_DotStar(numpixels, datapin, clockpin)
 
 strip.begin()           # Initialize pins for output
