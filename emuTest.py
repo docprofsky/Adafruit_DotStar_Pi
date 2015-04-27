@@ -16,7 +16,7 @@ numpixels = 144 # Number of LEDs in strip
 
 if emu:
     import LEDStripEmu
-    strip = LEDStripEmu.Strip(numpixels, 3, 144)
+    strip = LEDStripEmu.Strip(numpixels, 8, 144, True)
     # Strip(number of pixels, scale of pixels, pixels per line)
 else:
     from dotstar import Adafruit_DotStar

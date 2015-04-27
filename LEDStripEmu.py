@@ -8,11 +8,12 @@ black = (0, 0, 0)
 
 class Strip:
 
-    def __init__(self, size, scale, pixsPerLine):
+    def __init__(self, size, scale, pixsPerLine, pixelBorder):
         self.data = [0] * size
         self.begun = False
         self.brightness = 64
 
+        self.pixelBorder = pixelBorder
         self.pixsPerLine = pixsPerLine
         self.scale = scale
 
@@ -31,7 +32,8 @@ class Strip:
         self.brightness = brightness
 
     def setPixelColor(self, index, color):
-        self.data[index] = color
+        if index < len(self.data):
+            self.data[index] = color
 
     def show(self):
         for event in pygame.event.get():
@@ -46,4 +48,6 @@ class Strip:
             color = (self.data[i] & 0xFF, (self.data[i] >> 8) & 0xFF, (self.data[i] >> 16) & 0xFF)
             pos = ((i % self.pixsPerLine) * self.scale), (( i / self.pixsPerLine) * self.scale), self.scale, self.scale
             pygame.draw.rect(self.screen, color, pos, 0)
+            if self.pixelBorder:
+                pygame.draw.rect(self.screen, black, pos, 1)
         pygame.display.update()
